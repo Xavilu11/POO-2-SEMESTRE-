@@ -1,0 +1,69 @@
+# Crea un registro de personas y los almacena dentro del código para que después pueda ser localizada esta información
+# dentro del mismo código en base a los requerimientos que se desee consultar.
+# Código para gestionar información de un registro de personas
+# Tiene las funcionalidades de: agregar, mostrar y buscar información de personas
+# 
+
+def agregar_persona(registro: list) -> None:
+    """Agrega una nueva persona al registro."""
+    nombre = input("Introduce el nombre de la persona: ")
+    edad = int(input("Introduce la edad de la persona: "))
+    es_estudiante = input("¿Es estudiante? (sí/no): ").strip().lower() == 'sí'
+    
+    persona = {
+        'nombre': nombre,
+        'edad': edad,
+        'es_estudiante': es_estudiante
+    }
+    
+    registro.append(persona)
+    print(f"Persona '{nombre}' agregada al registro.")
+
+def mostrar_registro(registro: list) -> None:
+    """Muestra todas las personas en el registro."""
+    if not registro:
+        print("El registro está vacío.")
+        return
+    
+    print("\nRegistro de personas:")
+    for persona in registro:
+        estado_estudiante = "Sí" if persona['es_estudiante'] else "No"
+        print(f"Nombre: {persona['nombre']}, Edad: {persona['edad']}, Estudiante: {estado_estudiante}")
+
+def buscar_persona(registro: list) -> None:
+    """Busca una persona en el registro por su nombre."""
+    nombre_buscar = input("Introduce el nombre de la persona a buscar: ")
+    for persona in registro:
+        if persona['nombre'].lower() == nombre_buscar.lower():
+            estado_estudiante = "Sí" if persona['es_estudiante'] else "No"
+            print(f"Encontrada: Nombre: {persona['nombre']}, Edad: {persona['edad']}, Estudiante: {estado_estudiante}")
+            return
+    print(f"No se encontró a la persona con el nombre '{nombre_buscar}'.")
+
+def main():
+    """Función principal que gestiona la interacción con el usuario."""
+    registro_personas = []
+    
+    while True:
+        print("\nOpciones:")
+        print("1. Agregar persona")
+        print("2. Mostrar registro")
+        print("3. Buscar persona")
+        print("4. Salir")
+        
+        opcion = input("Selecciona una opción (1-4): ")
+        
+        if opcion == '1':
+            agregar_persona(registro_personas)
+        elif opcion == '2':
+            mostrar_registro(registro_personas)
+        elif opcion == '3':
+            buscar_persona(registro_personas)
+        elif opcion == '4':
+            print("Gracias por usar el programa. ¡Hasta luego!")
+            break
+        else:
+            print("Opción no válida. Por favor, intenta de nuevo.")
+
+if __name__ == "__main__":
+    main()
