@@ -1,0 +1,50 @@
+# En este ejemplo la clase "producto" cuenta con 2 atributos que son: nombre y precio
+# Tiene método de información que al desarrollar muestra la información tanto de precio como nombre
+# 
+# Clase base: Producto
+class Producto:
+    def __init__(self, nombre, precio):
+        self.nombre = nombre  # Atributo público
+        self.__precio = precio  # Atributo privado (encapsulado)
+
+    # Método específico para obtener el precio del producto
+    def obtener_precio(self):
+        return self.__precio
+
+    # Método específico para mostrar información del producto
+    def mostrar_info(self):
+        return f"Nombre: {self.nombre}, Precio: ${self.__precio:.2f}"
+
+# Clase derivada: Se crea el objeto Producto Electronico
+class ProductoElectronico(Producto):
+    def __init__(self, nombre, precio, garantia):
+        super().__init__(nombre, precio)  # Llamada al constructor de la clase base
+        self.garantia = garantia  # Atributo específico de ProductoElectronico
+
+    # Se usa el método mostrar_info para mostrar la informacion de la garantía
+    def mostrar_info(self):
+        info_base = super().mostrar_info()  # Llamada al método de la clase base
+        return f"{info_base}, Garantía: {self.garantia} años"
+
+# Clase derivada: Se utiliza para la clase Producto Alimenticio
+class ProductoAlimenticio(Producto):
+    def __init__(self, nombre, precio, fecha_expiracion):
+        super().__init__(nombre, precio)  # Llamada al código de la clase base
+        self.fecha_expiracion = fecha_expiracion  # Atributo específico de Producto Alimenticio
+
+    # Sobrescribiendo el método mostrar_info para incluir la fecha de expiración
+    def mostrar_info(self):
+        info_base = super().mostrar_info()  # Llamada al método de la clase base
+        return f"{info_base}, Fecha de Expiración: {self.fecha_expiracion}"
+
+# Función para mostrar información de cualquier producto
+def mostrar_informacion_producto(producto):
+    print(producto.mostrar_info())  # Polimorfismo: se llama al método correspondiente según el tipo de objeto
+
+# Creación de instancias de cada clase de producto
+producto1 = ProductoElectronico("Laptop", 1200.00, 2)  # Se muestra el precio y el 2 significa años de garantía
+producto2 = ProductoAlimenticio("Leche", 1.50, "2023-12-01")  # Fecha de expiración
+
+# Métodos para mostrar la información de cada producto
+mostrar_informacion_producto(producto1)  
+mostrar_informacion_producto(producto2)  
