@@ -1,0 +1,57 @@
+class Biblioteca:
+    def __init__(self, nombre):
+        """
+        Constructor de la clase Biblioteca.
+        Inicializa la biblioteca con un nombre y una lista vacía de libros.
+        
+        :param nombre: Nombre de la biblioteca.
+        """
+        self.nombre = nombre
+        self.libros = []  # Iniciamos una lista vacía para almacenar el nombre de los libros
+        print(f"Bienvenido a la biblioteca '{self.nombre}'.")
+
+    def agregar_libro(self, titulo, autor, paginas):
+        """
+        Método para agregar un libro a la biblioteca.
+        
+        :param titulo: Título del libro.
+        :param autor: Autor del libro.
+        :param paginas: Número de páginas del libro.
+        """
+        libro = {'titulo': titulo, 'autor': autor, 'paginas': paginas}
+        self.libros.append(libro)  # Agregamos el libro a la lista
+        print(f"Libro agregado: '{titulo}' de {autor}, {paginas} páginas.")
+
+    def mostrar_libros(self):
+        """
+        Método para mostrar todos los libros en la biblioteca.
+        """
+        if not self.libros:
+            print("No hay libros en la biblioteca.")
+        else:
+            print("Libros en la biblioteca:")
+            for libro in self.libros:
+                print(f"- '{libro['titulo']}' de {libro['autor']}, {libro['paginas']} páginas.")
+
+    def __del__(self):
+        """
+        Destructor de la clase Biblioteca.
+        Se llama automáticamente cuando el objeto es destruido.
+        Muestra un mensaje de despedida.
+        """
+        print(f"Gracias por visitar la biblioteca '{self.nombre}'. ¡Hasta luego!")
+
+# Ejemplo de uso de la clase Biblioteca
+if __name__ == "__main__":
+    # Creamos un objeto de la clase Biblioteca
+    mi_biblioteca = Biblioteca("Central del Libro")
+    
+    # Agregamos algunos libros
+    mi_biblioteca.agregar_libro("La Metamorfosis", "Franz Kafka", 120)
+    mi_biblioteca.agregar_libro("La tía Tula", "Miguel de Unamuno", 250)
+    
+    # Mostramos la lista de libros
+    mi_biblioteca.mostrar_libros()
+    
+    # Al salir del bloque, el objeto mi_biblioteca será destruido
+    # y el destructor se llamará automáticamente.
