@@ -1,0 +1,3 @@
+Manzana,15,0.5
+Piñas,20,1.0
+Naranjas,25,0.25
