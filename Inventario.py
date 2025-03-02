@@ -87,7 +87,7 @@ class Inventario:
             for producto in self.productos.values():
                 print(f"Nombre: {producto.nombre}, Cantidad: {producto.cantidad}, Precio: {producto.precio}")
 
-# Ejemplo de uso
+# Detalle para uso
 if __name__ == "__main__":
     inventario = Inventario()
     inventario.agregar_producto("Manzana", 10, 0.5)
