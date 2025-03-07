@@ -33,14 +33,15 @@ def menu():
 
     # Agregar algunos datos de ejemplo
     biblio.agregar_libro('Cien años de soledad', 'García Márquez')
-    biblio.agregar_libro('El amor en los tiempos del cólera', 'García Márquez')
+    biblio.agregar_libro('Huasipungo', 'Jorge Icaza')
     biblio.agregar_libro('Crónica de una muerte anunciada', 'García Márquez')
 
-    usuario_carlos = 'C456'
-    biblio.prestamos[usuario_carlos] = ['Cien años de soledad', 'Crónica de una muerte anunciada']
+    usuario_carlos = 'C001'
+    biblio.prestamos[usuario_carlos] = ['Cien años de soledad', 'Huasipungo', 'Crónica de una muerte anunciada']
     biblio.historial.append('Carlos prestó Cien años de soledad')
     biblio.historial.append('Carlos prestó Crónica de una muerte anunciada')
-
+    biblio.historial.append('Carlos prestó Huasipungo')
+    
     while True:
         print("\nMenú de opciones:")
         print("1. Buscar libros por autor")
@@ -87,7 +88,7 @@ if __name__ == "__main__":
     biblio.agregar_libro('El amor en los tiempos del cólera', 'García Márquez')
     biblio.agregar_libro('Crónica de una muerte anunciada', 'García Márquez')
 
-    usuario_carlos = 'C456'
+    usuario_carlos = 'C001'
     biblio.prestamos[usuario_carlos] = ['Cien años de soledad', 'Crónica de una muerte anunciada']
     biblio.historial.append('Carlos prestó Cien años de soledad')
     biblio.historial.append('Carlos prestó Crónica de una muerte anunciada')
