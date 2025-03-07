@@ -114,7 +114,7 @@ def menu():
             else:
                 print("No hay libros en la biblioteca.")
         elif opcion == '8':
-            print("Saliendo del programa...")
+            print("Saliendo del sistema...")
             break
         else:
             print("Opción no válida. Intente de nuevo.")
